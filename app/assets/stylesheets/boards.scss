@@ -1,0 +1,12 @@
+.boards_table {
+  tr:hover{
+    cursor: pointer;
+  }
+}
+
+//新規作成ボタンがテーブルの内側に入れるため
+.boards_linkBox {
+  a{
+    margin: 0 8px;
+  }
+}
