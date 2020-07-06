@@ -4,6 +4,7 @@ class CreateBoards < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :title
       t.text :body
+      t.string :url
       t.timestamps
     end
   end
