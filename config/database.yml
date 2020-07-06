@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: helps_to_study_production
-  username: helps_to_study
-  password: <%= ENV['HELPS_TO_STUDY_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
