@@ -1,30 +1,25 @@
-<h2>新規会員登録</h2>
+<div class="login-form">
+  <h1 class="h3 mb-3 font-weight-normal">アカウントの作成</h1>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email address' %>
+    </div>
+    
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password' %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "current-password", class: 'form-control', placeholder: 'Confirm' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
-  </div>
+    <p class="mt-2 mb-4">6文字以上のパスワードを入力してください</p>
 
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "新しいパスワード" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード確認 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "新しいパスワード" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
+    <div class="actions">
+        <%= f.submit "作成", class: 'btn btn-lg btn-primary btn-block' %>
+    </div>
+  <% end %>
 
 <%= render "devise/shared/links" %>
-
+</div>
