@@ -1,7 +1,8 @@
 class BoardsController < ApplicationController
+  before_action :correct_user, only: %i[edit destroy]
 
   def index
-    @boards = Board.all
+    @boards = Board.includes(:user)
   end
 
   def new
@@ -9,8 +10,8 @@ class BoardsController < ApplicationController
   end
 
   def create
-    board = Board.create(board_params)
-    redirect_to board 
+    board = current_user.boards.create!(board_params)
+    redirect_to boards_path
   end
 
   def show
@@ -18,20 +19,16 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    @board = Board.find(params[:id])
   end
 
   def update
     board = Board.find(params[:id])
     board.update(board_params)
-    
-    redirect_to board
+    redirect_to boards_path
   end
 
   def destroy
-    board = Board.find(params[:id])
-    board.delete
-
+    Board.destroy(params[:id])
     redirect_to boards_path
   end
 
@@ -39,5 +36,10 @@ class BoardsController < ApplicationController
 
   def board_params
      params.require(:board).permit(:name, :title, :body, :url)
+  end
+
+  def correct_user
+    @board = current_user.boards.find_by(id: params[:id])
+    redirect_to boards_path if @board.nil?
   end
 end
