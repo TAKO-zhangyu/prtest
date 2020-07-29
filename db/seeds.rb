@@ -5,3 +5,4 @@ user9.boards.create!(title: "hoge")
 user10.boards.create!(title: "fuga")
 user9.boards.create!(title: "hoge2")
 user10.boards.create!(title: "fuga2")
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
