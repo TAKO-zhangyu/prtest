@@ -80,6 +80,12 @@ class Devise::RegistrationsController < DeviseController
     redirect_to new_registration_path(resource_name)
   end
 
+  def new_name
+  end
+
+  def create_name
+  end
+
   protected
 
   def update_needs_confirmation?(resource, previous)
