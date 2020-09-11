@@ -1,0 +1,13 @@
+<h3 class="mb-5">ユーザーネームを登録</h3>
+<%= form_for(resource, as: resource_name, url: create_name_path, method: :patch) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field mb-5">
+    <%= f.label :ユーザーネーム %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control', placeholder: 'Username' %>
+  </div>
+  <div class="actions">
+        <%= f.submit "作成", class: 'btn btn-lg btn-primary btn-block' %>
+    </div>
+<% end %>
+
+
