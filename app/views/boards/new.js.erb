@@ -1,2 +1,2 @@
-$("#board-modal").html("<%= escape_javascript(render 'form') %>")
-$("#board-modal").children().modal("show")
+$('#board-modal').html('<%= j render('boards/form') %>')
+$('#board-modal').modal('show')
