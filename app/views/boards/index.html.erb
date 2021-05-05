@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center">
   <h1>一覧</h1>
   <div class="ml-auto boards_linkBox">
-    <%= link_to '新規作成', new_board_path, class: 'btn btn-outline-dark' %>
+    <%= link_to '新規作成', new_board_path, remote: true, class: 'btn btn-outline-dark' %>
   </div>
 </div>
 <table class="table table-hover boards_table">
@@ -28,3 +28,4 @@
     <% end %>
   </tbody>
 </table>
+<div id="board-modal" class="modal" tabindex="-1" role="dialog"></div>
