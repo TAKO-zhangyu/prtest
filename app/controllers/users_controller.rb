@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @board = Board.where(user_id: current_user.id)
   end
 
-  def create
+  def crea
     # 記事作成
   end
 end
